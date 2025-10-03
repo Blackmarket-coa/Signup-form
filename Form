@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMC Worker Signup</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9faf9;
+      color: #222;
+      margin: 0;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #2e6e4c;
+    }
+    form {
+      max-width: 700px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    .checkbox-group, .radio-group {
+      margin: 5px 0;
+    }
+    button {
+      margin-top: 20px;
+      background: #2e6e4c;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #24573b;
+    }
+  </style>
+</head>
+<body>
+  <h1>BMC Worker Signup</h1>
+  <p>Welcome! No experience needed — just interest and willingness to learn. Fill this out to join the federation.</p>
+  
+  <form action="/submit" method="POST">
+    <!-- About You -->
+    <h2>👋 About You</h2>
+    <label>Your Name or Nickname:</label>
+    <input type="text" name="name" required>
+    
+    <label>How can we reach you? (email, phone, Discord, etc.)</label>
+    <input type="text" name="contact" required>
+    
+    <label>Where are you located? (City/Region)</label>
+    <input type="text" name="location">
+    
+    <label>Do you have internet access most of the time?</label>
+    <select name="internet">
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+      <option value="sometimes">Sometimes</option>
+    </select>
+    
+    <!-- Skills & Interests -->
+    <h2>🛠 Skills & Interests</h2>
+    <label>Things you already know how to do:</label>
+    <div class="checkbox-group">
+      <input type="checkbox" name="skills" value="Building"> Building/Fixing things<br>
+      <input type="checkbox" name="skills" value="Farming"> Farming/Gardening/Cooking<br>
+      <input type="checkbox" name="skills" value="Tech"> Tech/Computers/Coding<br>
+      <input type="checkbox" name="skills" value="Driving"> Driving/Delivery/Transport<br>
+      <input type="checkbox" name="skills" value="Teaching"> Teaching/Organizing<br>
+      <input type="checkbox" name="skills" value="Other"> Other
+    </div>
+    
+    <label>What would you like to learn?</label>
+    <div class="checkbox-group">
+      <input type="checkbox" name="learn" value="Farming"> Farming & Food Growing<br>
+      <input type="checkbox" name="learn" value="Machines"> Using Machines<br>
+      <input type="checkbox" name="learn" value="Electronics"> Fixing Electronics<br>
+      <input type="checkbox" name="learn" value="Robots"> Robots & Automation<br>
+      <input type="checkbox" name="learn" value="Software"> Software & Coding<br>
+      <input type="checkbox" name="learn" value="Organizing"> Community Projects<br>
+      <input type="checkbox" name="learn" value="Other"> Other
+    </div>
+    
+    <!-- Space & Tools -->
+    <h2>📦 Space & Tools</h2>
+    <label>Do you have any space we could use? (garage, land, workshop, storage, etc.)</label>
+    <input type="text" name="space">
+    
+    <label>Do you already have any tools or equipment?</label>
+    <textarea name="tools"></textarea>
+    
+    <label>Would you like to host federation tools or projects where you live?</label>
+    <select name="host">
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+      <option value="maybe">Maybe</option>
+    </select>
+    
+    <!-- Needs -->
+    <h2>🏡 What You Need</h2>
+    <label>Do you need help with any of these? (check all that apply)</label>
+    <div class="checkbox-group">
+      <input type="checkbox" name="needs" value="Housing"> Housing<br>
+      <input type="checkbox" name="needs" value="Food"> Food<br>
+      <input type="checkbox" name="needs" value="Tools"> Tools/Equipment<br>
+      <input type="checkbox" name="needs" value="Training"> Training / Learning<br>
+      <input type="checkbox" name="needs" value="Earning"> A way to start earning money
+    </div>
+    
+    <label>What’s the #1 thing you’d like help with first?</label>
+    <input type="text" name="priority">
+    
+    <!-- Money & Projects -->
+    <h2>💰 Money & Projects</h2>
+    <label>Would you like to help fund projects? (small or big)</label>
+    <select name="funding">
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+      <option value="later">Maybe later</option>
+    </select>
+    
+    <label>Would you like to make small investments (like a greenhouse) and get paid back?</label>
+    <select name="investments">
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+      <option value="maybe">Maybe</option>
+    </select>
+    
+    <!-- Crew Responsibilities -->
+    <h2>⚖️ Being Part of the Crew</h2>
+    <label>Are you okay with looking after tools, machines, or land if you use them?</label>
+    <select name="responsibility">
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+      <option value="maybe">Maybe</option>
+    </select>
+    
+    <label>How do you see yourself helping the group?</label>
+    <textarea name="contribution"></textarea>
+    
+    <!-- Future -->
+    <h2>🚀 Your Future</h2>
+    <label>What projects sound exciting to you?</label>
+    <textarea name="projects"></textarea>
+    
+    <label>What’s something new you’d love to learn?</label>
+    <textarea name="learning"></textarea>
+    
+    <label>If this works out, what would “success” look like for you?</label>
+    <textarea name="success"></textarea>
+    
+    <button type="submit">Join the Federation 🚀</button>
+  </form>
+</body>
+</html>
